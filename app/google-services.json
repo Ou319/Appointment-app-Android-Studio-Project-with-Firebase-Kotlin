@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "160475872871",
+    "project_id": "appointment-app-android-studio",
+    "storage_bucket": "appointment-app-android-studio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160475872871:android:2cdae7fed5eb896102dec2",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC49jONyKJZKr2q5fG5aBxUsJnUTpFpTSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
