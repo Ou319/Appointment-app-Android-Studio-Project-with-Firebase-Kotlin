@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.Activity.model.CategoriesModel
 import com.example.myapplication.databinding.ActivityCategorieViewBinding
-import com.google.firebase.database.core.Context
+
+import android.content.Context
 
 class Category_Adapter(
     private val items:MutableList<CategoriesModel>
 ): RecyclerView.Adapter<Category_Adapter.ViewHolderCategory>() {
     @SuppressLint("RestrictedApi")
-    private lateinit var context:
-            android.content.Context
+    private lateinit var context:Context
 
     inner class ViewHolderCategory(val binding: ActivityCategorieViewBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -31,10 +31,12 @@ class Category_Adapter(
 
     override fun onBindViewHolder(holder: ViewHolderCategory, position: Int) {
         val item=items[position]
-        holder.binding.titleCategory.text=item.name
-
+        holder.binding.titleCategory.text=item.Name
+//        print(item.name)
         Glide.with(context)
-            .load(item.picture)
+            .load(item.Picture)
             .into(holder.binding.imageView4)
+
+
     }
 }

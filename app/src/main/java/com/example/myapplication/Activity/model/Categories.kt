@@ -1,8 +1,8 @@
 package com.example.myapplication.Activity.model
 
-data class CategoriesModel(
-    val id:Int,
-    val name:String,
-    val picture:String,
-)
+ class CategoriesModel {
+     var Id: Int =0
+     var Name: String = ""
+     var Picture: String = ""
 
+ }
