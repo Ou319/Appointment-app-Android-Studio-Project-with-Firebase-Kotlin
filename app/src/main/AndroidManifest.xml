@@ -13,10 +13,13 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".RemoveFlag"
+            android:name=".categorieView"
             android:exported="false" />
         <activity
-            android:name=".IntromainActivity"
+            android:name=".Activity.activity.RemoveFlag"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.activity.IntromainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.activity.MainActivity"
             android:exported="true" />
     </application>
 

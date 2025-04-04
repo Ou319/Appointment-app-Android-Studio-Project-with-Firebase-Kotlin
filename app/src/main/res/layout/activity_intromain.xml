@@ -6,7 +6,7 @@
     android:background="@color/purple"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntromainActivity">
+    tools:context=".Activity.activity.IntromainActivity">
 
     <ImageView
         android:id="@+id/imageView"
