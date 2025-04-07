@@ -1,10 +1,12 @@
 package com.example.myapplication.Activity.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myapplication.Activity.activity.Datail_Activity
 import com.example.myapplication.Activity.model.DoctoresModel
 import com.example.myapplication.databinding.ActivityDocotresViewBinding
 
@@ -39,5 +41,10 @@ class Docotore_Adapter(
             .load(item.Picture)
             .into(holder.binding.imgDoctore)
 
+        holder.itemView.setOnClickListener{
+            val intent=Intent(context,Datail_Activity::class.java)
+            intent.putExtra("object",items[position])
+            context.startActivity(intent)
+        }
     }
 }
