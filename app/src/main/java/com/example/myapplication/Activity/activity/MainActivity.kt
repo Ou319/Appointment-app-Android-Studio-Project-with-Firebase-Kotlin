@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.Activity.adapter.Category_Adapter
+import com.example.myapplication.Activity.adapter.Docotore_Adapter
 import com.example.myapplication.Activity.viewmodel.MainactivityViewmodel
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -25,6 +26,18 @@ class MainActivity : AppCompatActivity() {
 
 
         initCategory()
+        initDocotore()
+    }
+
+    private fun initDocotore() {
+        binding.progressBar2.visibility=View.VISIBLE
+
+        viewModel.Doctore.observe(this, Observer {
+            binding.recyclerView2.layoutManager=LinearLayoutManager(this@MainActivity,LinearLayoutManager.HORIZONTAL,false)
+            binding.recyclerView2.adapter=Docotore_Adapter(it)
+            binding.progressBar2.visibility=View.GONE
+        })
+        viewModel.loadDocotore()
     }
 
     private fun initCategory() {

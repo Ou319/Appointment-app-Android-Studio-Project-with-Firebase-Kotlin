@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.Activity.model.CategoriesModel
+import com.example.myapplication.Activity.model.DoctoresModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -18,6 +19,36 @@ class MainactivityViewmodel:ViewModel(){
     private val _Categorie=MutableLiveData<MutableList<CategoriesModel>>()
     val Categorie:LiveData<MutableList<CategoriesModel>> = _Categorie
 
+    //get taple of Categories
+    private val _Doctore=MutableLiveData<MutableList<DoctoresModel>>()
+    val Doctore:LiveData<MutableList<DoctoresModel>> = _Doctore
+
+    //this is for Doctore
+    fun loadDocotore(){
+        val ref=firebaseDatabase.getReference("Doctors")
+
+        ref.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val doctoteList = mutableListOf<DoctoresModel>()
+
+                for (child in snapshot.children){
+                    val doctore=child.getValue(DoctoresModel::class.java)
+                    if (doctore != null) {
+                        doctoteList.add(doctore)
+                    }
+                }
+                _Doctore.value=doctoteList
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("FirebaseError", "Error loading categories: ${error.message}")
+                _Doctore.value = mutableListOf()
+            }
+
+        })
+    }
+
+    //this for Categories
     fun loadCategorie(){
         val ref=firebaseDatabase.getReference("Category")
         
